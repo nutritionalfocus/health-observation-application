@@ -1,0 +1,94 @@
+{
+    "name": "HealthIndicatorObservation",
+    "fields": [
+        {
+            "fieldName": "observationTime",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "observationAccuracy",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "receivedTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "indicatorId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "indicatorType",
+            "fieldType": "IndicatorType",
+            "fieldValues": "HEART_RATE_VARIABILITY,SYSTOLIC_BLOOD_PRESSURE,ASYSTOLIC_BLOOD_PRESSURE,VISERAL_FAT",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "indicatorName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "attributedEntityType",
+            "fieldType": "EntityType",
+            "fieldValues": "PERSON,ANIMAL,TEST",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "attributedEntityName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "indicatorSourceType",
+            "fieldType": "SourceType",
+            "fieldValues": "HEART_RATE_MONITOR,SPORTS_WATCH,BLOOD_PRESSURE_CUFF,FULL_BODY_IMAGING_DEVICE,TANITA_MACHINE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "indicatorSourceName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "indicatorSourceLink",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191011130528",
+    "javadoc": "Health Indicator Observation entity",
+    "entityTableName": "health_indicator_observation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
