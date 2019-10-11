@@ -1,0 +1,16 @@
+version: '2'
+services:
+  healthobservationapplication-mongodb:
+    image: mongo:4.0.12
+    ports:
+      - '27017:27017'
+    command: mongos --configdb healthobservationapplication-mongodb-config
+  healthobservationapplication-mongodb-node:
+    build:
+      context: .
+      dockerfile: mongodb/MongoDB.Dockerfile
+    command: mongod --replSet rs1 --noprealloc --smallfiles
+  healthobservationapplication-mongodb-config:
+    image: mongo:4.0.12
+    container_name: healthobservationapplication-mongodb-config
+    command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db
