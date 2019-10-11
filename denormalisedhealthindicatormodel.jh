@@ -1,0 +1,54 @@
+/**
+* Health Observation entity
+*/
+entity HealthObservation {
+    id Long,
+    description String required,
+    confidence Long required,
+    observationTime Instant,
+    observedBy String required
+}
+
+/**
+* Health Indicator Observation entity
+*/
+entity HealthIndicatorObservation {
+    id Long,
+	observationTime Instant required,
+    observationAccuracy Long required,
+    receivedTime Instant
+    indicatorId Long required,
+	indicatorType IndicatorType required,
+    indicatorName String required,
+    attributedEntityType EntityType required,
+    attributedEntityName String required,
+    indicatorSourceType SourceType required,
+    indicatorSourceName String required,
+    indicatorSourceLink String required
+}
+
+enum IndicatorType {
+    HEART_RATE_VARIABILITY, SYSTOLIC_BLOOD_PRESSURE, ASYSTOLIC_BLOOD_PRESSURE, VISERAL_FAT
+}
+
+enum EntityType {
+    PERSON, ANIMAL, TEST
+}
+
+enum SourceType {
+    HEART_RATE_MONITOR, SPORTS_WATCH, BLOOD_PRESSURE_CUFF, FULL_BODY_IMAGING_DEVICE, TANITA_MACHINE
+}
+
+relationship ManyToMany {
+	HealthObservation{healthIndicatorObservations} to HealthIndicatorObservation
+}
+
+// Set pagination options
+paginate HealthIndicatorObservation with infinite-scroll
+paginate HealthObservation with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
